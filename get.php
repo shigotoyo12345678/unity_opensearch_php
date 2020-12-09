@@ -52,13 +52,10 @@ try {
     //今回ここではSELECT文を送信している。UPDATE、DELETEなどは、また少し記法が異なる。
     $stmt = $pdo->query($sql);
 
-    $aaa = 0;
     $hoge = array();
-    $hoge2 = array("button" => $hoge);
 
     // 取得したデータを出力
     foreach ($stmt as $value) {
-        $aaa += 1;
         array_push($hoge, array("content_no" => $value["content_no"], "name" => $value["name"]));
     }
 } catch (PDOException $e) {
@@ -67,7 +64,6 @@ try {
 }
 $pdo = null;    //DB切断
 
-//array_push($hoge2, $hoge);
 $hoge2 = array("button" => $hoge);
 
 $hoge2 = json_encode($hoge2, JSON_UNESCAPED_UNICODE);
