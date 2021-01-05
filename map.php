@@ -6,7 +6,6 @@ $pdo = connectDB();
 
 $prefecture = $_GET["prefecture"];
 $city = $_GET["city"];
-//$industry = $_POST["industry"];
 $word = $_GET["word"];
 if (isset($_GET["word2"])) {
     $word2 = $_GET["word2"];
@@ -17,7 +16,6 @@ $now = $_GET["now"];
 
 // tryにPDOの処理を記述
 try {
-
 
     $sql = "SELECT * FROM `content` WHERE 1";
 
@@ -51,7 +49,6 @@ try {
         }
     }
 
-
     echo "<br>";
 
     $stmt = $pdo->query($sql);
@@ -63,9 +60,7 @@ try {
 
     $jsjson = json_encode($js);
 
-
     $apikey = "AIzaSyBXqVRTnTo7lG4owMiUXxeER3aU7XBUMGA";
-
 
     echo "成功";
     // エラー（例外）が発生した時の処理を記述
@@ -153,20 +148,14 @@ $apikey = "AIzaSyBXqVRTnTo7lG4owMiUXxeER3aU7XBUMGA";
             margin-left: auto;
         }
 
-
-
         .img {
             width: 100%;
             height: 100px;
         }
 
-
         .button {
-
             font-size: 1em;
-
             font-weight: bold;
-
             padding: 5px 30px;
             border: 2px solid black;
             width: 200px;
@@ -176,7 +165,6 @@ $apikey = "AIzaSyBXqVRTnTo7lG4owMiUXxeER3aU7XBUMGA";
         .button:hover {
             color: red;
             border: 2px solid red;
-
         }
     </style>
 </head>
