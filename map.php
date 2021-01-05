@@ -15,9 +15,6 @@ if (isset($_GET["word2"])) {
 }
 $now = $_GET["now"];
 
-
-echo "うんこ";
-
 // tryにPDOの処理を記述
 try {
 
@@ -30,9 +27,6 @@ try {
     if ($city != "") {
         $sql = $sql . " AND `city`='" . $city . "'";
     }
-    /*if ($industry != "") {
-            $sql = $sql . " AND `industory`='" . $industry . "'";
-        }*/
     if ($word != "") {
         $sql = $sql . " AND( `prefecture` LIKE '%" . $word . "%' OR `city` LIKE '%" . $word . "%' 
             OR `name` LIKE '%" . $word . "%' OR `address` LIKE '%" . $word . "%' OR `remark` LIKE '%" . $word . "%' OR `tag` LIKE '%" . $word . "%' )";
@@ -41,22 +35,6 @@ try {
         $sql = $sql . " AND `prefecture` LIKE '%" . $word2 . "%' OR `city` LIKE '%" . $word2 . "%' 
             OR `name` LIKE '%" . $word2 . "%' OR `address` LIKE '%" . $word2 . "%' OR `remark` LIKE '%" . $word2 . "%' OR `tag` LIKE '%" . $word2 . "%'";
     }
-    /*
-    if ($now == 1) {
-        $today = date("Y-m-d");
-        $youbi = date("w", strtotime($today));
-
-        if ($youbi == 1 || $youbi == 2 || $youbi == 3 || $youbi == 4 || $youbi == 5) {
-            $num = 1;
-        } else if ($youbi == 0 || $youbi == 6) {
-            $num = 0;
-        }
-    }
-    if ($num == 1) {
-        $sql = $sql . " AND (CURRENT_TIME >= `5` OR CURRENT_TIME <= `6` OR `5`='00:00:00' AND `6` = '00:00:00')  AND( CURRENT_DATE >= `start` AND CURRENT_DATE <= `end` ) AND `closeflg`=0";
-    } else if ($num == 0) {
-        $sql = $sql . " AND (CURRENT_TIME >= `7`  OR CURRENT_TIME <= `8` OR `7`='00:00:00' AND `8` = '00:00:00')  AND (CURRENT_DATE >= `start` AND CURRENT_DATE <= `end`) AND `closeflg`=0 ";
-    }*/
     if ($now == 1) {
         $today = date("Y-m-d");
         $youbi = date("w", strtotime($today));
